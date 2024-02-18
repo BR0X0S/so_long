@@ -6,7 +6,7 @@
 /*   By: oumondad <oumondad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 16:26:02 by oumondad          #+#    #+#             */
-/*   Updated: 2024/02/15 16:29:05 by oumondad         ###   ########.fr       */
+/*   Updated: 2024/02/18 17:03:42 by oumondad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,10 @@ t_var	ft_check_map(char **av)
 	if (ft_check_if_ber(av) != 0)
 		ft_error("Error : Error on ext .ber\n");
 	data = get_map(data.fd);
+	data.len_x = ft_strlen(data.map[data.x - 1]);
+	data.len_y = data.x;
+	if (data.len_x > 64 || data.len_y > 35)
+		ft_error("Error : map resolution error !\n");
 	check_elements(data);
 	if (check_walls(data) != 0)
 		ft_error("Error : Error on cader of the map\n");
@@ -118,7 +122,5 @@ t_var	ft_check_map(char **av)
 	data.map_check_all = flood_fill_exit(pose.x, pose.y, data.map_check_all);
 	map_valid (data, data.map_check_all, 'E');
 	data.salta3_count = count_coin(&data);
-	data.len_x = ft_strlen(data.map[data.x - 1]);
-	data.len_y = data.x;
 	return (data);
 }

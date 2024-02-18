@@ -6,7 +6,7 @@
 /*   By: oumondad <oumondad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 17:05:29 by oumondad          #+#    #+#             */
-/*   Updated: 2024/02/15 16:39:16 by oumondad         ###   ########.fr       */
+/*   Updated: 2024/02/18 19:21:03 by oumondad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int	main(int ac, char **av)
 		if (!data)
 			ft_error("Error : struct faild");
 		*data = ft_check_map(av);
-		if (data->len_x > 51 || data->len_y > 28)
-			ft_error("Error : map resolution error !\n");
 		data -> mlx = mlx_init();
+		if (!data -> mlx)
+			ft_error("Error : mlx faild");
 		initialize_image(data);
 		data -> mlx_window = mlx_new_window(data->mlx,
 				(data -> len_x * 50), (data -> len_y * 50), "Broxos");
