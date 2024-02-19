@@ -6,7 +6,7 @@
 /*   By: oumondad <oumondad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 14:32:58 by oumondad          #+#    #+#             */
-/*   Updated: 2024/02/19 15:40:18 by oumondad         ###   ########.fr       */
+/*   Updated: 2024/02/19 19:27:51 by oumondad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	check_alphabet(char *str)
 		ft_error("map does not exist");
 	while (str[i])
 	{
-		if (!(str[i] == '1' || str[i] == '0' || str[i] == 'P' || str[i] == 'E'
-				|| str[i] == 'C' || str[i] == '\n'))
+		if (!(str[i] == '1' || str[i] == '0' || str[i] == 'P' || str[i] == 'M'
+				|| str[i] == 'E' || str[i] == 'C' || str[i] == '\n'))
 			ft_error("Error new element add");
 		i++;
 	}
@@ -46,29 +46,29 @@ void	check_new_line(char *strr)
 
 void	check_elements(t_var data)
 {
-	int			i;
-	int			j;
 	static int	c = 0;
 	static int	e = 0;
 	static int	p = 0;
+	static int	m = 0;
 
-	i = 0;
-	while (i < data.x)
+	while (data.i < data.x)
 	{
-		j = 0;
-		while (data.map[i][j])
+		data.j = 0;
+		while (data.map[data.i][data.j])
 		{
-			if (data.map[i][j] == 'C')
+			if (data.map[data.i][data.j] == 'C')
 				c++;
-			else if (data.map[i][j] == 'E')
+			else if (data.map[data.i][data.j] == 'E')
 				e++;
-			else if (data.map[i][j] == 'P')
+			else if (data.map[data.i][data.j] == 'P')
 				p++;
-			j++;
+			else if (data.map[data.i][data.j] == 'M')
+				m++;
+			data.j++;
 		}
-		i++;
+		data.i++;
 	}
-	if (e != 1 || p != 1 || c < 1)
+	if (e != 1 || p != 1 || c < 1 || m < 1)
 		ft_error("Error in the element of the map");
 }
 

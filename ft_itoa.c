@@ -6,7 +6,7 @@
 /*   By: oumondad <oumondad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 16:01:04 by oumondad          #+#    #+#             */
-/*   Updated: 2024/02/19 17:12:15 by oumondad         ###   ########.fr       */
+/*   Updated: 2024/02/19 18:20:58 by oumondad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	nb_len(int nb)
 	}
 	return (i);
 }
-
 
 char	*ft_itoa(int nb)
 {

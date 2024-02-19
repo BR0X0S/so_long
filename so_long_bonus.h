@@ -6,7 +6,7 @@
 /*   By: oumondad <oumondad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 15:40:12 by oumondad          #+#    #+#             */
-/*   Updated: 2024/02/19 17:12:37 by oumondad         ###   ########.fr       */
+/*   Updated: 2024/02/19 19:06:07 by oumondad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ typedef struct s_var
 	int		gps_y;
 	int		fd;
 	int		x;
+	int		j;
+	int		i;
 	int		len_x;
 	int		len_y;
 	void	*mlx;
@@ -71,11 +73,12 @@ typedef struct s_var
 	void	*right;
 	void	*door_o;
 	void	*door_c;
+	void	*enemy;
 	void	*mlx_window;
 	int		width;
 	int		height;
-	int		salta3_count;
 	char	*str_mv;
+	int		salta3_count;
 }	t_var;
 
 /*GET NEXT LINE FUNCTIONS*/

@@ -6,7 +6,7 @@
 /*   By: oumondad <oumondad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:53:35 by oumondad          #+#    #+#             */
-/*   Updated: 2024/02/19 15:40:29 by oumondad         ###   ########.fr       */
+/*   Updated: 2024/02/19 19:25:50 by oumondad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,10 @@ void	initialize_image(t_var *data)
 			"./textures/door_close.xpm", &data -> width, &data -> height);
 	if (!data->door_c)
 		ft_error("Error : door faild");
+	data -> enemy = mlx_xpm_file_to_image(data->mlx,
+			"./textures/enemy.xpm", &data -> width, &data -> height);
+	if (!data->enemy)
+		ft_error("Error : enemy faild");
 	initialize_image_2(data);
 }
 
@@ -78,8 +82,8 @@ void	put_image_v2(t_var data, int x, int y)
 		if (data.map[y][x] == '1')
 			mlx_put_image_to_window(data.mlx, data.mlx_window,
 				data.wall, x * 50, y * 50);
-		if (data.map[y][x] == '0' || data.map[y][x] == 'C'
-			|| data.map[y][x] == 'P' || data.map[y][x] == 'E')
+		if (data.map[y][x] == '0' || data.map[y][x] == 'C' || data.map[y][x] ==
+			'P' || data.map[y][x] == 'E' || data.map[y][x] == 'M')
 			mlx_put_image_to_window(data.mlx, data.mlx_window,
 				data.bground, x * 50, y * 50);
 		if (data.map[y][x] == 'C')
@@ -91,6 +95,9 @@ void	put_image_v2(t_var data, int x, int y)
 		if (data.map[y][x] == 'P')
 			mlx_put_image_to_window(data.mlx, data.mlx_window,
 				data.sponge, x * 50, y * 50);
+		if (data.map[y][x] == 'M')
+			mlx_put_image_to_window(data.mlx, data.mlx_window,
+				data.enemy, x * 50, y * 50);
 		x++;
 	}
 }

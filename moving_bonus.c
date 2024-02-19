@@ -6,7 +6,7 @@
 /*   By: oumondad <oumondad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:30:12 by oumondad          #+#    #+#             */
-/*   Updated: 2024/02/19 17:06:42 by oumondad         ###   ########.fr       */
+/*   Updated: 2024/02/19 19:16:41 by oumondad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void	left_move(t_var *data)
 		ft_player_mv(data);
 		if (data->map[data->gps_y][data->gps_x - 1] == 'E')
 			ft_win("\nYou Win\n", data);
+		if (data->map[data->gps_y][data->gps_x - 1] == 'M')
+			ft_win("\nYou Lose\n", data);
 		mlx_put_image_to_window(data->mlx, data->mlx_window,
 			data->bground, data->gps_x * 50, data->gps_y * 50);
 		mlx_put_image_to_window(data->mlx, data->mlx_window,
@@ -63,6 +65,8 @@ void	right_move(t_var *data)
 		ft_player_mv(data);
 		if (data->map[data->gps_y][data->gps_x + 1] == 'E')
 			ft_win("\nYou Win\n", data);
+		if (data->map[data->gps_y][data->gps_x + 1] == 'M')
+			ft_win("\nYou Lose\n", data);
 		mlx_put_image_to_window(data->mlx, data->mlx_window,
 			data->bground, data->gps_x * 50, data->gps_y * 50);
 		mlx_put_image_to_window(data->mlx, data->mlx_window,
@@ -91,6 +95,8 @@ void	up_move(t_var *data)
 			data->back, data->gps_x * 50, (data->gps_y - 1) * 50);
 		if (data->map[data->gps_y - 1][data->gps_x] == 'E')
 			ft_win("\nYou Win\n", data);
+		if (data->map[data->gps_y - 1][data->gps_x] == 'M')
+			ft_win("\nYou Lose\n", data);
 		data->gps_y--;
 		if (data->map[data->gps_y][data->gps_x] == 'C')
 		{
@@ -115,6 +121,8 @@ void	down_move(t_var *data)
 			data->sponge, data->gps_x * 50, (data->gps_y + 1) * 50);
 		if (data->map[data->gps_y + 1][data->gps_x] == 'E')
 			ft_win("\nYou Win\n", data);
+		if (data->map[data->gps_y + 1][data->gps_x] == 'M')
+			ft_win("\nYou Lose\n", data);
 		if (data->map[data->gps_y + 1][data->gps_x] == 'C')
 		{
 			data->map[data->gps_y + 1][data->gps_x] = '0';

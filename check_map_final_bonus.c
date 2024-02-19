@@ -6,7 +6,7 @@
 /*   By: oumondad <oumondad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 16:26:02 by oumondad          #+#    #+#             */
-/*   Updated: 2024/02/19 15:40:07 by oumondad         ###   ########.fr       */
+/*   Updated: 2024/02/19 19:05:06 by oumondad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ t_var	get_map(int fd)
 {
 	t_var	data;
 
+	data.i = 0;
 	data.x = 0;
 	data.strr = NULL;
 	while (1)
@@ -33,6 +34,7 @@ t_var	get_map(int fd)
 	data.map = ft_split (data.strr, '\n');
 	if (!data.map)
 		ft_error("Error : split allocation Error\n");
+	check_elements(data);
 	close (fd);
 	return (data);
 }
@@ -109,7 +111,6 @@ t_var	ft_check_map(char **av)
 	data.len_y = data.x;
 	if (data.len_x > 64 || data.len_y > 35)
 		ft_error("Error : map resolution error !\n");
-	check_elements(data);
 	if (check_walls(data) != 0)
 		ft_error("Error : Error on cader of the map\n");
 	pose = ft_find_player(data, 'P');
