@@ -6,7 +6,7 @@
 #    By: oumondad <oumondad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 16:21:31 by oumondad          #+#    #+#              #
-#    Updated: 2024/02/18 17:38:07 by oumondad         ###   ########.fr        #
+#    Updated: 2024/02/19 17:13:07 by oumondad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,19 +21,28 @@ SRC = check_map_final.c check_map_utils.c destroy_all.c drawing_map.c flood_fill
 
 OBJ = ${SRC:.c=.o}
 
+BSRC = check_map_final_bonus.c check_map_utils_bonus.c destroy_all_bonus.c drawing_map_bonus.c flood_fill_bonus.c \
+	ft_split.c get_next_line_utils.c get_next_line.c mini_lbft.c mouve_count_bonus.c moving_bonus.c so_long_bonus.c \
+	ft_itoa.c
+
+BOBJ = ${BSRC:.c=.o}
+
 all : ${NAME}
 
 ${NAME} : ${OBJ}
 	${CC} ${CFLAGS} ${OBJ} -lmlx -framework OpenGL -framework AppKit -o ${NAME}
 
+bonus : ${BOBJ}
+	${CC} ${CFLAGS} ${BOBJ} -lmlx -framework OpenGL -framework AppKit -o ${NAME}
+
 clean :
-	rm -rf ${OBJ}
+	rm -rf ${OBJ} ${BOBJ}
 
 fclean : clean
-	rm -f ${NAME}
+	rm -f ${NAME} ${bonus}
 
 re : fclean all
 
-.PHONY : all clean fclean re
+.PHONY : all clean fclean re bonus
 
 .SECONDARY : ${OBJ}

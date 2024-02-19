@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oumondad <oumondad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 15:40:12 by oumondad          #+#    #+#             */
-/*   Updated: 2024/02/18 21:20:52 by oumondad         ###   ########.fr       */
+/*   Updated: 2024/02/19 17:12:37 by oumondad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42 /*8405 BROS*/
@@ -75,6 +75,7 @@ typedef struct s_var
 	int		width;
 	int		height;
 	int		salta3_count;
+	char	*str_mv;
 }	t_var;
 
 /*GET NEXT LINE FUNCTIONS*/
@@ -123,7 +124,8 @@ void	put_image_v2(t_var data, int x, int y);
 
 void	ft_putnbr(int nb);
 void	ft_putchar(char c);
-void	ft_player_mv(void);
+void	ft_player_mv(t_var *data);
+char	*ft_itoa(int i);
 
 /*MOVING FUNCTIONS*/
 
