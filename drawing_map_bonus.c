@@ -6,7 +6,7 @@
 /*   By: oumondad <oumondad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:53:35 by oumondad          #+#    #+#             */
-/*   Updated: 2024/02/19 19:25:50 by oumondad         ###   ########.fr       */
+/*   Updated: 2024/02/20 15:49:06 by oumondad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,8 @@ void	initialize_image(t_var *data)
 			"./textures/door_close.xpm", &data -> width, &data -> height);
 	if (!data->door_c)
 		ft_error("Error : door faild");
-	data -> enemy = mlx_xpm_file_to_image(data->mlx,
-			"./textures/enemy.xpm", &data -> width, &data -> height);
-	if (!data->enemy)
-		ft_error("Error : enemy faild");
 	initialize_image_2(data);
+	init_img_bonus(data);
 }
 
 void	initialize_image_2(t_var *data)

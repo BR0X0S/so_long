@@ -6,7 +6,7 @@
 /*   By: oumondad <oumondad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 15:40:12 by oumondad          #+#    #+#             */
-/*   Updated: 2024/02/19 19:06:07 by oumondad         ###   ########.fr       */
+/*   Updated: 2024/02/20 16:48:55 by oumondad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,12 +73,15 @@ typedef struct s_var
 	void	*right;
 	void	*door_o;
 	void	*door_c;
-	void	*enemy;
 	void	*mlx_window;
 	int		width;
 	int		height;
 	char	*str_mv;
 	int		salta3_count;
+	void	*enemy;
+	void	*enemy2;
+	void	*enemy3;
+	void	*enemy4;
 }	t_var;
 
 /*GET NEXT LINE FUNCTIONS*/
@@ -118,6 +121,7 @@ char	**flood_fill_player(int x, int y, char **map);
 /*DRAWING MAP FUCTIONS*/
 
 void	put_image(t_var data);
+void	init_img_bonus(t_var *data);
 void	initialize_image(t_var *data);
 void	initialize_image_2(t_var *data);
 void	ft_check_open_door(t_var *data);
@@ -142,6 +146,12 @@ int		ft_moving(int keycode, t_var *data);
 
 int		ft_errors(void);
 void	ft_win(char *str, t_var *data);
+
+/*ANIMATION FUNCTIONS*/
+
+int		animation(t_var *data);
+void	frames(t_var *data, int x, int y, int i);
+void	frames2(t_var *data, int x, int y, int i);
 
 /*********************/
 

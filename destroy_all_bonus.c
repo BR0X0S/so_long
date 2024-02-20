@@ -6,7 +6,7 @@
 /*   By: oumondad <oumondad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 17:06:59 by oumondad          #+#    #+#             */
-/*   Updated: 2024/02/19 15:40:23 by oumondad         ###   ########.fr       */
+/*   Updated: 2024/02/20 18:00:05 by oumondad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ void	ft_error(char *str)
 
 void	ft_win(char *str, t_var *data)
 {
+	mlx_destroy_image(data->mlx, data->enemy);
+	mlx_destroy_image(data->mlx, data->enemy2);
+	mlx_destroy_image(data->mlx, data->enemy3);
+	mlx_destroy_image(data->mlx, data->enemy4);
 	mlx_destroy_image(data->mlx, data->wall);
 	mlx_destroy_image(data->mlx, data->bground);
 	mlx_destroy_image(data->mlx, data->salta3_birgar);
