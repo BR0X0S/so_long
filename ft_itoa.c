@@ -6,7 +6,7 @@
 /*   By: oumondad <oumondad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 16:01:04 by oumondad          #+#    #+#             */
-/*   Updated: 2024/02/19 18:20:58 by oumondad         ###   ########.fr       */
+/*   Updated: 2024/02/21 15:42:11 by oumondad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ char	*ft_itoa(int nb)
 
 	len = nb_len(nb);
 	s_nb = malloc (len + 1);
+	if (!s_nb)
+		ft_error("Error : itoa allocation faild");
 	if (nb == 0)
 		s_nb[0] = '0';
 	if (nb < 0)

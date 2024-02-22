@@ -6,7 +6,7 @@
 /*   By: oumondad <oumondad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 15:40:12 by oumondad          #+#    #+#             */
-/*   Updated: 2024/02/20 16:48:55 by oumondad         ###   ########.fr       */
+/*   Updated: 2024/02/21 16:48:30 by oumondad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SO_LONG_BONUS_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42 /*8405 BROS*/
+#  define BUFFER_SIZE 42
 # endif
 
 /*DEFINE KEY MOVEMENT*/
@@ -33,9 +33,6 @@
 # include <limits.h>
 # include <stdio.h>
 # include <fcntl.h>
-# include <string.h>
-# include <stdio.h>
-# include <unistd.h>
 # include <mlx.h>
 
 /*GET PLAYER POSE STRUCT*/
@@ -144,7 +141,7 @@ int		ft_moving(int keycode, t_var *data);
 
 /*DESTROY FUNCTIONS*/
 
-int		ft_errors(void);
+int		ft_errors(t_var *data);
 void	ft_win(char *str, t_var *data);
 
 /*ANIMATION FUNCTIONS*/

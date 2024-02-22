@@ -6,30 +6,11 @@
 /*   By: oumondad <oumondad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 15:33:42 by oumondad          #+#    #+#             */
-/*   Updated: 2024/02/12 12:55:43 by oumondad         ###   ########.fr       */
+/*   Updated: 2024/02/21 15:52:43 by oumondad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	*ft_calloc(size_t count, size_t size)
-{
-	char	*place;
-	size_t	i;
-
-	if (count && (SIZE_MAX) / count < size)
-		return (NULL);
-	place = malloc (count * size);
-	if (place == 0)
-		return (NULL);
-	i = 0;
-	while (i < count * size)
-	{
-		place[i] = '\0';
-		i++;
-	}
-	return (place);
-}
 
 int	ft_strcmp(char *substr, char *ber)
 {
@@ -74,7 +55,7 @@ char	*ft_strdup(char *s1)
 	i = 0;
 	copy = malloc(ft_strlen(s1) + 1);
 	if (!copy)
-		return (NULL);
+		ft_error("Error : strdup faild");
 	while (s1[i])
 	{
 		copy[i] = s1[i];

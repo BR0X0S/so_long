@@ -6,7 +6,7 @@
 /*   By: oumondad <oumondad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 14:32:58 by oumondad          #+#    #+#             */
-/*   Updated: 2024/02/19 19:27:51 by oumondad         ###   ########.fr       */
+/*   Updated: 2024/02/21 16:45:38 by oumondad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ void	check_alphabet(char *str)
 
 	i = 0;
 	if (str == NULL || str[i] == '\0')
-		ft_error("map does not exist");
+		ft_error("Error : map does not exist");
 	while (str[i])
 	{
 		if (!(str[i] == '1' || str[i] == '0' || str[i] == 'P' || str[i] == 'M'
 				|| str[i] == 'E' || str[i] == 'C' || str[i] == '\n'))
-			ft_error("Error new element add");
+			ft_error("Error : new element add");
 		i++;
 	}
 }
@@ -37,11 +37,11 @@ void	check_new_line(char *strr)
 	{
 		if ((strr[i] == '\n' && strr[i + 1] == '\n')
 			|| strr[i] == ' ' || strr[i] == '\t' || strr[0] == '\n')
-			ft_error("something wrong with the architecture of the map");
+			ft_error("Error :something wrong with the architecture of the map");
 		i++;
 	}
 	if (strr[i - 1] == '\n')
-		ft_error("something wrong with the architecture of the map");
+		ft_error("Error : something wrong with the architecture of the map");
 }
 
 void	check_elements(t_var data)
@@ -69,7 +69,7 @@ void	check_elements(t_var data)
 		data.i++;
 	}
 	if (e != 1 || p != 1 || c < 1 || m < 1)
-		ft_error("Error in the element of the map");
+		ft_error("Error : in the element of the map");
 }
 
 int	count_coin(t_var *data)
